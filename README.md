@@ -8,7 +8,7 @@ This repository contains implementations of common data structures in Python, Ja
 | Data Structure   | Python | Java | C/C++ |
 |------------------|------|------|-----|
 | Linked List      | ✓    |      |     |
-| Doubly Linked List |      |      |     |
+| Doubly Linked List | ✓      |      |     |
 | Stack            |      |      |     |
 | Queue            |      |      |     |
 | Binary Tree      |      |      |     |
