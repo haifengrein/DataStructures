@@ -16,25 +16,25 @@ def filled_dll():
 
 class TestDoublyLinkedList:
     def test_initialize_empty_list(self, dll):
-        assert dll.head is not None, "Head node should be initialized"
-        assert dll.tail is not None, "Tail node should be initialized"
-        assert dll.head.next is dll.tail, "Head's next should be tail"
-        assert dll.tail.prev is dll.head, "Tail's prev should be head"
-        assert dll.size == 0, "Size of the list should be initialized to 0"
+        assert dll._head is not None, "Head node should be initialized"
+        assert dll._tail is not None, "Tail node should be initialized"
+        assert dll._head._next is dll._tail, "Head's next should be tail"
+        assert dll._tail._prev is dll._head, "Tail's prev should be head"
+        assert dll._size == 0, "Size of the list should be initialized to 0"
 
     def test_add_to_head_empty_list(self, dll):
         dll.add_at_head(1)
-        assert dll.head.next.val == 1
-        assert dll.head.next.next is dll.tail
-        assert dll.tail.prev.val == 1
-        assert dll.size == 1
+        assert dll._head._next._val == 1
+        assert dll._head._next._next is dll._tail
+        assert dll._tail._prev._val == 1
+        assert dll._size == 1
 
     def test_add_to_tail_empty_list(self, dll):
         dll.add_at_tail(1)
-        assert dll.tail.prev.val == 1
-        assert dll.tail.prev.prev is dll.head
-        assert dll.head.next.val == 1
-        assert dll.size == 1
+        assert dll._tail._prev._val == 1
+        assert dll._tail._prev._prev is dll._head
+        assert dll._head._next._val == 1
+        assert dll._size == 1
 
     def test_add_method(self, dll):
         dll.add_at_head(2)
@@ -45,29 +45,29 @@ class TestDoublyLinkedList:
         dll.add_at_index(2, 3)
 
         assert str(dll) == "None <-> 1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 6 <-> None"
-        assert dll.size == 6
+        assert dll._size == 6
 
     def test_remove_method(self, filled_dll):
         filled_dll.delete_at_head()
         assert str(filled_dll) == "None <-> 2 <-> 3 <-> 4 <-> 5 <-> 6 <-> 7 <-> 8 <-> 9 <-> None"
-        assert filled_dll.size == 8
+        assert filled_dll._size == 8
 
         filled_dll.delete_at_tail()
         assert str(filled_dll) == "None <-> 2 <-> 3 <-> 4 <-> 5 <-> 6 <-> 7 <-> 8 <-> None"
-        assert filled_dll.size == 7
+        assert filled_dll._size == 7
 
         filled_dll.delete_at_head()
         filled_dll.delete_at_tail()
         assert str(filled_dll) == "None <-> 3 <-> 4 <-> 5 <-> 6 <-> 7 <-> None"
-        assert filled_dll.size == 5
+        assert filled_dll._size == 5
 
         filled_dll.delete_by_value(4)
         assert str(filled_dll) == "None <-> 3 <-> 5 <-> 6 <-> 7 <-> None"
-        assert filled_dll.size == 4
+        assert filled_dll._size == 4
 
         filled_dll.delete_by_value(3)
         assert str(filled_dll) == "None <-> 5 <-> 6 <-> 7 <-> None"
-        assert filled_dll.size == 3
+        assert filled_dll._size == 3
 
         with pytest.raises(ValueError):
             filled_dll.delete_by_value(100)
@@ -75,15 +75,15 @@ class TestDoublyLinkedList:
     def test_delete_at_index_method(self, filled_dll):
         filled_dll.delete_at_index(0)
         assert str(filled_dll) == "None <-> 2 <-> 3 <-> 4 <-> 5 <-> 6 <-> 7 <-> 8 <-> 9 <-> None"
-        assert filled_dll.size == 8
+        assert filled_dll._size == 8
 
         filled_dll.delete_at_index(7)
         assert str(filled_dll) == "None <-> 2 <-> 3 <-> 4 <-> 5 <-> 6 <-> 7 <-> 8 <-> None"
-        assert filled_dll.size == 7
+        assert filled_dll._size == 7
 
         filled_dll.delete_at_index(3)
         assert str(filled_dll) == "None <-> 2 <-> 3 <-> 4 <-> 6 <-> 7 <-> 8 <-> None"
-        assert filled_dll.size == 6
+        assert filled_dll._size == 6
 
         with pytest.raises(IndexError):
             filled_dll.delete_at_index(100)
@@ -105,9 +105,9 @@ class TestDoublyLinkedList:
 
     def test_clear_method(self, filled_dll):
         filled_dll.clear()
-        assert filled_dll.size == 0
-        assert filled_dll.head.next is filled_dll.tail
-        assert filled_dll.tail.prev is filled_dll.head
+        assert filled_dll._size == 0
+        assert filled_dll._head._next is filled_dll._tail
+        assert filled_dll._tail._prev is filled_dll._head
         assert str(filled_dll) == "None <-> None"
 
     def test_adding_operations(self):

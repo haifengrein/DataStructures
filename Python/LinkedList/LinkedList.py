@@ -60,7 +60,7 @@ class LinkedList:
 
         curr = self.head
         while curr.next:
-            curr = curr.next
+            curr = curr._next
         curr.next = ListNode(val)
         self.size += 1
 
@@ -100,12 +100,12 @@ class LinkedList:
         if index < 0 or index > self.size:
             raise IndexError("Index out of bounds.")
         if index == 0:
-            self.head = self.head.next
+            self.head = self.head._next
             return
         curr_node = self.head
         for _ in range(index - 1):
-            curr_node = curr_node.next
-        curr_node.next = curr_node.next.next
+            curr_node = curr_node._next
+        curr_node._next = curr_node._next._next
         self.size -= 1
 
     def delete_at_head(self) -> None:
@@ -133,17 +133,17 @@ class LinkedList:
         """
         if self.size == 0:
             raise IndexError("Can't delete from an empty linked list.")
-        if self.head.val == val:
-            self.head = self.head.next
+        if self.head._val == val:
+            self.head = self.head._next
             self.size -= 1
             return
         current = self.head
-        while current.next and current.next.val != val:
-            current = current.next
+        while current._next and current._next._val != val:
+            current = current._next
 
-        if current.next is None:
+        if current._next is None:
             raise ValueError(f"Value {val} not found in the linked list.")
-        current.next = current.next.next
+        current._next = current._next._next
         self.size -= 1
 
     def find(self, val) -> int:
@@ -162,9 +162,9 @@ class LinkedList:
         index = 0
         current = self.head
         while current:
-            if current.val == val:
+            if current._val == val:
                 return index
-            current = current.next
+            current = current._next
             index += 1
 
         raise ValueError(f"Value {val} not found in the linked list.")
@@ -189,8 +189,8 @@ class LinkedList:
         for _ in range(index):
             if not self.head:
                 raise ValueError("Can't access from an empty linked list.")
-            current = current.next
-        return current.val
+            current = current._next
+        return current._val
 
     def __len__(self):
         """Return the number of elements in the list."""
@@ -201,8 +201,8 @@ class LinkedList:
         result = []
         current = self.head
         while current:
-            result.append(str(current.val))
-            current = current.next
+            result.append(str(current._val))
+            current = current._next
         result.append("None")
         return " - > ".join(result)
 

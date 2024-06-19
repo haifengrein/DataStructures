@@ -5,17 +5,18 @@ This repository contains implementations of common data structures in Python, Ja
 
 ## To-Do List
 
-| Data Structure   | Python | Java | C/C++ |
-|------------------|------|------|-----|
-| Linked List      | ✓    |      |     |
-| Doubly Linked List | ✓      |      |     |
-| Stack            |      |      |     |
-| Queue            |      |      |     |
-| Binary Tree      |      |      |     |
-| Binary Search Tree |      |      |     |
-| AVL Tree         |      |      |     |
-| Min Heap         |      |      |     |
-| Max Heap         |      |      |     |
-| Graph (Adjacency List) |      |      |     |
-| Graph (Adjacency Matrix)|      |      |     |
-| Hash Table       |      |      |     |
+| Data Structure           | Python | Java | C/C++ |
+|--------------------------|------|------|-----|
+| Linked List              | ✓    |      |     |
+| Doubly Linked List       | ✓    |      |     |
+| Stack                    |  ✓   |      |     |
+| Queue                    |   ✓  |      |     |
+| Deque                    |  ✓   |      |     |
+| Binary Tree              |      |      |     |
+| Binary Search Tree       |      |      |     |
+| AVL Tree                 |      |      |     |
+| Min Heap                 |      |      |     |
+| Max Heap                 |      |      |     |
+| Graph (Adjacency List)   |      |      |     |
+| Graph (Adjacency Matrix) |      |      |     |
+| Hash Table               |      |      |     |

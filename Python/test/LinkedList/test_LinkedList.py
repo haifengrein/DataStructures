@@ -24,8 +24,8 @@ class TestSinglyLinkedList:
     def test_add_to_empty_list(self, sll):
         sll.add_at_tail(1)
         assert sll.head is not None
-        assert sll.head.val == 1
-        assert sll.head.next is None
+        assert sll.head._val == 1
+        assert sll.head._next is None
 
     def test_add_at_head(self,filled_sll):
         filled_sll.add_at_head(10)
@@ -54,8 +54,8 @@ class TestSinglyLinkedList:
             sll.add_at_tail(val)
         current = sll.head
         for val in values:
-            assert val == current.val
-            current = current.next
+            assert val == current._val
+            current = current._next
         assert current is None
 
     def test_all_add_methods(self,sll):
