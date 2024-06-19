@@ -4,23 +4,16 @@ LinkedList Module
 
 This module provides a basic implementation of a doubly linked list.
 
-In this implementation, use a "two-sentinel" design pattern. The two sentinels are special nodes that do not store
-any actual data; Instead, they serve as placeholders at the beginning (head) and end (tail) of the list. This design
-simplifies the implementation by eliminating the need for special-case code to handle insertions and deletions at the
-boundaries of the list.
-
-The key benefits of using the two-sentinel pattern include: 1. Simplified code for insertion and deletion: With
-sentinels, the head and tail nodes are always present, so there is no need to check for null references or handle
-empty list conditions specially. 2. Improved readability and maintainability: The code is cleaner and easier to
-understand, as it avoids edge cases that would otherwise complicate the logic.
+In this implementation, use a "two-sentinel" design pattern.
 
 Core Summary of Doubly Linked List Implementation:
+
 ===================================================
+
 	1.	Addition Operation:
 	•	Traverse to the node immediately before or after the target position.
 	•	The new node should point to the nodes before and after the intended position.
 	•	Update the pointers of the adjacent nodes to correctly point to the new node.
-
 	2.	Deletion Operation:
 	•	Traverse to the node that needs to be deleted.
 	•	Update the pointers of the node’s previous and next nodes to bypass the node to be deleted.
