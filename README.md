@@ -19,4 +19,4 @@ This repository contains implementations of common data structures in Python, Ja
 | Max Heap                 |      |      |     |
 | Graph (Adjacency List)   |      |      |     |
 | Graph (Adjacency Matrix) |      |      |     |
-| Hash Table               |      |      |     |
+| Hash Map                 |  ✓    |      |     |
